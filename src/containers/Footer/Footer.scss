@@ -1,0 +1,67 @@
+.footer {
+  background-color: #0d1319;
+  height: 193px;
+  padding-top: 40px;
+
+  .container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  p {
+    letter-spacing: .035em;
+    color: #fff;
+  }
+
+  .footer__blog {
+    margin-left: 133px;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-left: auto;
+    }
+
+    p, a {
+      display: block;
+      color: #fff;
+      margin-top: 17px;
+      &:first-of-type {
+        margin-top: auto;
+      }
+    }
+  }
+
+  .footer__socials {
+    list-style: none;
+    padding-top: 20px;
+
+    li {
+      display: inline-block;
+      margin-left: 16px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      img {
+        width: 20px;
+      }
+    }
+  }
+
+  a.footer__app-link {
+    display: inline-block;
+    margin-left: 7px;
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    img {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      width: 132px;
+    }
+  }
+}
