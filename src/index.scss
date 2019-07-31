@@ -27,3 +27,19 @@ button {
   width: 1140px;
   margin: auto;
 }
+
+.btn-play {
+  width: 24px;
+  height: 24px;
+  background: url("./assets/imgs/play.png") no-repeat center center;
+  background-size: contain;
+  border: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.full-page {
+  height: 100%;
+  width: 100%;
+}

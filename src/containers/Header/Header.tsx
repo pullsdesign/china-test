@@ -10,6 +10,7 @@ function Header() {
         <div className="header__logo">
           <img src={Logo} alt="ChinesePod"/>
         </div>
+        <p className="header__num-of-test"><span>1</span>/10</p>
       </div>
     </header>
   )

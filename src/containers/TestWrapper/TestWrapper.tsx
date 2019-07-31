@@ -1,15 +1,17 @@
 import * as React from 'react';
-import './Test.scss'
+import './TestWrapper.scss'
 import {State} from './interfaces';
 
 import StartPage from './StartPage/StartPage';
+import Test from './Test/Test';
 
-export default class Test extends React.Component<Object, State> {
+export default class TestWrapper extends React.Component<Object, State> {
   constructor(props: any) {
     super(props);
 
     this.state = {
-      testStarted: false
+      // TODO: don't forget to change this val to false later
+      testStarted: true
     };
 
     this.startTest = this.startTest.bind(this);
@@ -23,9 +25,9 @@ export default class Test extends React.Component<Object, State> {
 
   render() {
     return (
-      <div className="test container">
+      <div className="test-wrapper container">
         {
-          this.state.testStarted ? <p>test started</p> : <StartPage onStartTest={this.startTest}/>
+          this.state.testStarted ? <Test/> : <StartPage onStartTest={this.startTest}/>
         }
       </div>
     )

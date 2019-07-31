@@ -8,6 +8,12 @@
   -moz-box-shadow: 0 10px 16px 5px rgba(34, 31, 31, 0.08);
   box-shadow: 0 10px 16px 5px rgba(34, 31, 31, 0.08);
 
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .header__logo {
     overflow: hidden;
     -webkit-user-select: none;
@@ -19,6 +25,17 @@
     img {
       width: 100%;
       max-width: 162px;
+    }
+  }
+
+  .header__num-of-test {
+    font-size: 1.286em;
+    color: #fff;
+    letter-spacing: .025em;
+
+    span {
+      font-size: 1.34em;
+      letter-spacing: .025em;
     }
   }
 }
