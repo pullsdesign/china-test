@@ -16,6 +16,13 @@ a, a:hover, a:focus {
   color: inherit;
 }
 
+button {
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+}
+
 .container {
   width: 1140px;
   margin: auto;

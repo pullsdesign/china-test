@@ -1,0 +1,113 @@
+.start-page {
+  max-width: 553px;
+  margin: auto;
+
+  .start-page__title {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #0d1319;
+    margin-bottom: 15px;
+  }
+  .start-page__subtitle {
+    letter-spacing: .025em;
+    color: #6e7175;
+    text-align: center;
+    line-height: 23px;
+  }
+
+  .start-page__option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 433px;
+    height: 207px;
+    margin: 55px auto 0;
+    padding: 31px 5px 19px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 4px 13.7px 4.3px rgba(33, 30, 31, 0.06);
+    -moz-box-shadow: 0 4px 13.7px 4.3px rgba(33, 30, 31, 0.06);
+    box-shadow: 0 4px 13.7px 4.3px rgba(33, 30, 31, 0.06);
+    border: solid 1px #9ea1a3;
+    cursor: pointer;
+
+    img {
+      width: 48px;
+    }
+
+    p {
+      font-size: 1.4em;
+      color: #0d1319;
+      letter-spacing: 0.025em;
+      margin: 20px 0 18px;
+    }
+
+    input {
+      visibility: hidden;
+      position: absolute;
+      pointer-events: none;
+      
+      &:checked + .start-page__checkbox-immit {
+        &::after {
+          display: block;
+          content: '';
+          position: absolute;
+          top: 1px;
+          bottom: 1px;
+          left: 1px;
+          right: 1px;
+          background-color: red;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .start-page__checkbox-immit {
+      position: relative;
+      width: 14px;
+      height: 14px;
+      margin: auto;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      border: 1px solid #bababa;
+    }
+  }
+
+  .start-page__btn {
+    margin: 69px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    background-color: #00b233;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    color: #fff;
+    padding: 5px 50px;
+    letter-spacing: .025em;
+
+    img {
+      pointer-events: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      width: 13px;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+      margin-left: 8px;
+    }
+  }
+}
