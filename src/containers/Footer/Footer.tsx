@@ -14,41 +14,83 @@ function Footer() {
           <p>Follow us</p>
           <ul className="footer__socials">
             <li>
-              <a href="#">
+              <a
+                href="https://www.facebook.com/ChinesePod"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={InstaIcon} alt="Instagram"/>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a
+                href="https://twitter.com/chinesepod"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={InstaIcon} alt="Instagram"/>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a
+                href="https://www.instagram.com/chinesepod/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={InstaIcon} alt="Instagram"/>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a
+                href="https://www.youtube.com/user/ChinesePodTV"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={InstaIcon} alt="Instagram"/>
               </a>
             </li>
           </ul>
         </div>
         <div className="footer__blog">
-          <a href="#">About</a>
-          <a href="#">Support</a>
+          <a
+            href="https://chinesepod.com/why-choose-us/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >About</a>
+          <a
+            href="https://support.chinesepod.com/hc/en-us"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Support</a>
         </div>
         <div className="footer__blog">
-          <a href="#">Terms of Service</a>
-          <a href="#">Privacy</a>
+          <a
+            href="https://chinesepod.com/terms-and-conditions"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Terms of Service</a>
+          <a
+            href="https://chinesepod.com/privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Privacy</a>
         </div>
         <div className="footer__blog">
           <p>Download ChinesePod App</p>
-          <a href="#" className="footer__app-link">
+          <a
+            href="https://itunes.apple.com/us/app/chinesepod-podcast/id1185380819?mt=8"
+            target="_blank"
+            className="footer__app-link"
+            rel="noopener noreferrer"
+          >
             <img src={AppStoreIcon} alt="AppStore"/>
           </a>
-          <a href="#" className="footer__app-link">
+          <a
+            href="https://play.google.com/store/apps/details?id=llc.chinesepod.android&hl=en"
+            target="_blank"
+            className="footer__app-link"
+            rel="noopener noreferrer"
+          >
             <img src={GooglePlayIcon} alt="Google Play"/>
           </a>
         </div>
