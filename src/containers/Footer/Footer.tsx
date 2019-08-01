@@ -1,7 +1,10 @@
 import React from 'react';
 import './Footer.scss';
 
-import InstaIcon from '../../assets/imgs/instagram.png'
+import InstaIcon from '../../assets/imgs/insta-icon.png'
+import TwitterIcon from '../../assets/imgs/twitter-icon.png'
+import FBIcon from '../../assets/imgs/facebook-icon.png'
+import YouTubeIcon from '../../assets/imgs/youtube-icon.png'
 import AppStoreIcon from '../../assets/imgs/icon-app-store.png'
 import GooglePlayIcon from '../../assets/imgs/icon-google-play.png'
 
@@ -15,24 +18,6 @@ function Footer() {
           <ul className="footer__socials">
             <li>
               <a
-                href="https://www.facebook.com/ChinesePod"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={InstaIcon} alt="Instagram"/>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/chinesepod"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={InstaIcon} alt="Instagram"/>
-              </a>
-            </li>
-            <li>
-              <a
                 href="https://www.instagram.com/chinesepod/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -42,11 +27,29 @@ function Footer() {
             </li>
             <li>
               <a
+                href="https://www.facebook.com/ChinesePod"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={FBIcon} alt="Facebook"/>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/chinesepod"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={TwitterIcon} alt="Twitter"/>
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://www.youtube.com/user/ChinesePodTV"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={InstaIcon} alt="Instagram"/>
+                <img src={YouTubeIcon} alt="YouTube"/>
               </a>
             </li>
           </ul>

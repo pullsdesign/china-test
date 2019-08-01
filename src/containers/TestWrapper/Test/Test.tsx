@@ -7,6 +7,14 @@ import SoundTextTest from './SoundTextTest/SoundTextTest';
 import SoundImageTest from './SoundImageTest/SoundImageTest';
 import WordsTest from './WordsTest/WordsTest';
 
+import TextTestCopy from './TextTestCopy/TextTest';
+import ImageTestCopy from './ImageTestCopy/ImageTest';
+import SoundImageTestCopy from './SoundImageTestCopy/SoundImageTest';
+import SoundTextTestCopy from './SoundTextTestCopy/SoundTextTest';
+import WordsTestCopy from './WordsTestCopy/WordsTest';
+
+import Result from '../Result/Result';
+
 class Test extends React.Component<any, any> {
   private counter = 1;
 
@@ -35,17 +43,47 @@ class Test extends React.Component<any, any> {
         break;
       case 3:
         this.setState({
-          currentQuestion: SoundTextTest
+          currentQuestion: TextTestCopy
         });
         break;
       case 4:
         this.setState({
-          currentQuestion: SoundImageTest
+          currentQuestion: SoundTextTest
         });
         break;
       case 5:
         this.setState({
+          currentQuestion: SoundImageTest
+        });
+        break;
+      case 6:
+        this.setState({
+          currentQuestion: ImageTestCopy
+        });
+        break;
+      case 7:
+        this.setState({
           currentQuestion: WordsTest
+        });
+        break;
+      case 8:
+        this.setState({
+          currentQuestion: SoundImageTestCopy
+        });
+        break;
+      case 9:
+        this.setState({
+          currentQuestion: SoundTextTestCopy
+        });
+        break;
+      case 10:
+        this.setState({
+          currentQuestion: WordsTestCopy
+        });
+        break;
+      case 11:
+        this.setState({
+          currentQuestion: Result
         });
         break;
       default:

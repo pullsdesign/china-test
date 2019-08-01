@@ -86,6 +86,11 @@
       pointer-events: none;
       position: absolute;
     }
+
+    .test-text__answer-text {
+      font-weight: bold;
+      font-size: 18px;
+    }
   }
 
   .test-controls {
@@ -95,7 +100,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: #00b233; // color is not like in image test type
+      background-color: #e5233d;
       height: 44px;
       width: 214px;
       -webkit-border-radius: 22px;
@@ -110,7 +115,7 @@
         margin-left: 0;
       }
       &.shaden {
-        background-color: #b5b5b5; // color is not like in image test type
+        background-color: #ba979c;
       }
     }
   }

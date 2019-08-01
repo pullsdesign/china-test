@@ -87,13 +87,16 @@
     align-items: center;
     justify-content: center;
     height: 44px;
-    background-color: #00b233;
+    background-color: #e5233d;
     -webkit-border-radius: 22px;
     -moz-border-radius: 22px;
     border-radius: 22px;
     color: #fff;
     padding: 5px 50px;
     letter-spacing: .025em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 
     img {
       pointer-events: none;
