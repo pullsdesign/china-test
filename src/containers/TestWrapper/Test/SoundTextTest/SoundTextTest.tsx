@@ -1,5 +1,6 @@
 import React from 'react';
 import './SoundTextTest.scss'
+import Buttons from "../Buttons/Buttons";
 
 function SoundTextTest(props: any) {
   return (
@@ -31,11 +32,7 @@ function SoundTextTest(props: any) {
           <button className="btn-play test-sound-text__answer-audio"/>
         </label>
       </div>
-      <div className="test-controls">
-        <button onClick={props.onQuestionChange()}>Next</button>
-        <button className="shaden">Not Sure</button>
-        <button>I don’t know</button>
-      </div>
+      <Buttons/>
     </div>
   )
 }

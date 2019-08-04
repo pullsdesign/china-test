@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ProgressBar from './ProgressBar/ProgressBar';
 import ImageTest from './ImageTest/ImageTest';
 import TextTest from './TextTest/TextTest';
 import SoundTextTest from './SoundTextTest/SoundTextTest';
@@ -97,7 +96,6 @@ class Test extends React.Component<any, any> {
   render() {
     return (
       <div className="full-page">
-        <ProgressBar/>
         {<this.state.currentQuestion onQuestionChange={() => this.nextQuestion}/>}
       </div>
     )

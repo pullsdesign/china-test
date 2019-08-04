@@ -1,6 +1,8 @@
 import React from 'react';
 import './ImageTest.scss';
 
+import Buttons from '../Buttons/Buttons';
+
 import Image1 from '../../../../assets/imgs/image-01-test.jpg';
 import Image2 from '../../../../assets/imgs/image-02-test.jpg';
 import Image3 from '../../../../assets/imgs/image-03-test.jpg';
@@ -32,11 +34,7 @@ function ImageTest(props: any) {
           <img className="full" src={Image4} alt="Image4"/>
         </label>
       </div>
-      <div className="test-controls">
-        <button onClick={props.onQuestionChange()}>Next</button>
-        <button className="shaden">Not Sure</button>
-        <button>I don’t know</button>
-      </div>
+      <Buttons/>
     </div>
   )
 }

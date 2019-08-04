@@ -1,5 +1,6 @@
 import React from 'react';
 import './WordsTest.scss';
+import Buttons from "../Buttons/Buttons";
 
 function WordsTest(props: any) {
   return (
@@ -31,11 +32,7 @@ function WordsTest(props: any) {
           <p className="test-words__answer-text">Mobile payment</p>
         </label>
       </div>
-      <div className="test-controls">
-        <button onClick={props.onQuestionChange()}>Next</button>
-        <button className="shaden">Not Sure</button>
-        <button>I don’t know</button>
-      </div>
+      <Buttons/>
     </div>
   )
 }

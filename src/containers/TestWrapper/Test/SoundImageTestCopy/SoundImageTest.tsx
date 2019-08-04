@@ -1,6 +1,8 @@
 import React from 'react';
 import './SoundImageTest.scss';
 
+import Buttons from '../Buttons/Buttons';
+
 import testImg from '../../../../assets/imgs/image-05-test.jpg';
 
 function SoundImageTest(props: any) {
@@ -30,11 +32,7 @@ function SoundImageTest(props: any) {
           <p className="test-sound-image__answer-text">一切就绪</p>
         </label>
       </div>
-      <div className="test-controls">
-        <button onClick={props.onQuestionChange()}>Next</button>
-        <button className="shaden">Not Sure</button>
-        <button>I don’t know</button>
-      </div>
+      <Buttons/>
     </div>
   )
 }

@@ -92,31 +92,4 @@
       position: absolute;
     }
   }
-
-  .test-controls {
-    padding-top: 46px;
-
-    button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #e5233d;
-      height: 44px;
-      width: 214px;
-      -webkit-border-radius: 22px;
-      -moz-border-radius: 22px;
-      border-radius: 22px;
-      color: #fff;
-      font-weight: 500;
-      letter-spacing: .025em;
-      border: 0;
-      margin-left: 16px;
-      &:first-of-type {
-        margin-left: 0;
-      }
-      &.shaden {
-        background-color: #ba979c;
-      }
-    }
-  }
 }
