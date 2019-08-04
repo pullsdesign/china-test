@@ -37,7 +37,7 @@ function SoundImageTest(props: any) {
       <div className="test-controls">
         <button onClick={props.onQuestionChange()}>Next</button>
         <button className="shaden">Not Sure</button>
-        <button className="shaden">I don’t know</button>
+        <button>I don’t know</button>
       </div>
     </div>
   )

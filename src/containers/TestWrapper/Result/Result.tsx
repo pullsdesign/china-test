@@ -11,7 +11,7 @@ import Advanced from '../../../assets/imgs/cpod_level_advanced.svg'
 function Result() {
   return(
     <div className="result">
-      <p className="result__title">You are recommended to the <span>Upper Intermediate 100 curriculum</span></p>
+      <p className="result__title">You are recommended to the <span>Advanced 100 curriculum</span></p>
       <ul className="result__level">
         <li>
           <img src={IntermediateIcon} alt="Intermediate"/>
