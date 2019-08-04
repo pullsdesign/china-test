@@ -87,7 +87,7 @@
     align-items: center;
     justify-content: center;
     height: 44px;
-    background-color: #e5233d;
+    background-color: #00B233;
     -webkit-border-radius: 22px;
     -moz-border-radius: 22px;
     border-radius: 22px;
@@ -97,6 +97,7 @@
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+    border: 0;
 
     img {
       pointer-events: none;

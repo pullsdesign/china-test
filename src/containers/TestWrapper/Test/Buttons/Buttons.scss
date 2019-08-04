@@ -5,7 +5,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #e5233d;
+    background-color: #00B233;
     height: 44px;
     width: 214px;
     -webkit-border-radius: 22px;
@@ -19,8 +19,11 @@
     &:first-of-type {
       margin-left: 0;
     }
-    &.shaden {
-      background-color: #ba979c;
+    &.gray {
+      background-color: #B5B5B5;
+    }
+    &.red {
+      background-color: #E22742;
     }
   }
 }
