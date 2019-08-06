@@ -1,0 +1,12 @@
+.question-wrapper {
+  .question-wrapper__answer {
+    label {
+      flex-direction: column; // this is not like in imageTest question type
+
+      img {
+        max-width: 211px;
+        max-height: 118px;
+      }
+    }
+  }
+}

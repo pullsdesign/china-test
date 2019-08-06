@@ -1,4 +1,4 @@
-.test-text {
+.question-wrapper {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -7,16 +7,16 @@
   width: 100%;
   padding-top: 30px;
 
-  .test-text__question {
+  .question-wrapper__question {
     text-align: center;
     font-size: 1.5em;
     margin-bottom: auto;
 
-    .test-text__question-title {
+    .question-wrapper__question-title {
       letter-spacing: .025em;
     }
 
-    .test-text__question-word {
+    .question-wrapper__question-word {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -28,13 +28,13 @@
       }
     }
 
-    .test-text__question-transcription {
+    .question-wrapper__question-transcription {
       letter-spacing: .025em;
       margin-top: 22px;
     }
   }
 
-  .test-text__answer {
+  .question-wrapper__answer {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -43,7 +43,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column; // this is not like in imageTest question type
       width: 100%;
       height: 171px;
       flex-grow: 1;
@@ -76,8 +75,7 @@
       }
 
       img {
-        max-width: 211px;
-        max-height: 118px;
+        height: 100%;
       }
     }
 
@@ -86,8 +84,16 @@
       pointer-events: none;
       position: absolute;
     }
+  }
 
-    .test-text__answer-text {
+  &.--text {
+    .question-wrapper__answer {
+      label {
+        flex-direction: column;
+      }
+    }
+
+    .question-wrapper__answer-text {
       font-weight: bold;
       font-size: 18px;
     }

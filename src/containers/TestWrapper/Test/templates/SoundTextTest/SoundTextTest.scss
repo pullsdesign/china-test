@@ -1,0 +1,26 @@
+.question-wrapper {
+  .question-wrapper__question {
+    .question-wrapper__question-word {
+      font-weight: bolder;
+    }
+  }
+
+  .question-wrapper__answer {
+    label {
+      flex-direction: column;
+
+      img {
+        max-width: 211px;
+        max-height: 118px;
+      }
+    }
+
+    .btn-play {
+      margin-top: 16px;
+    }
+  }
+
+  .question-wrapper__answer-text {
+    font-weight: bolder;
+  }
+}
