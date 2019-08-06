@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Buttons from '../../Buttons/Buttons';
-
 import Image1 from '../../../../../assets/imgs/image-01.png';
 import Image2 from '../../../../../assets/imgs/layer-23-copy-2.png';
 import Image3 from '../../../../../assets/imgs/image-03.png';
@@ -12,7 +10,7 @@ function ImageTest(props: any) {
     <div className="question-wrapper">
       <div className="question-wrapper__question">
         <p className="question-wrapper__question-title">Which one is <b>the corresponding</b> photo for</p>
-        <p className="question-wrapper__question-word">「三点钟」<button className="btn-play"/></p>
+        <p className="question-wrapper__question-word"><span>「三点钟」</span><button className="btn-play"/></p>
         <p className="question-wrapper__question-transcription">sāndiǎnzhōng</p>
       </div>
       <div className="question-wrapper__answer">
@@ -33,7 +31,6 @@ function ImageTest(props: any) {
           <img src={Image4} alt="Image4"/>
         </label>
       </div>
-      <Buttons/>
     </div>
   )
 }

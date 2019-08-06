@@ -1,8 +1,6 @@
 import React from 'react';
 import './SoundImageTest.scss';
 
-import Buttons from '../../Buttons/Buttons';
-
 import testImg from '../../../../../assets/imgs/image-test.jpg';
 
 function SoundImageTest(props: any) {
@@ -36,7 +34,6 @@ function SoundImageTest(props: any) {
           <button className="btn-play question-wrapper__answer-audio"/>
         </label>
       </div>
-      <Buttons/>
     </div>
   )
 }

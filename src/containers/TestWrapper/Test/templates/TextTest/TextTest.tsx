@@ -1,8 +1,6 @@
 import React from 'react';
 import './TextTest.scss';
 
-import Buttons from '../../Buttons/Buttons';
-
 function TextTest(props: any) {
   return (
     <div className="question-wrapper --text">
@@ -31,7 +29,6 @@ function TextTest(props: any) {
           <p className="question-wrapper__answer-subscr">mǎ</p>
         </label>
       </div>
-      <Buttons/>
     </div>
   )
 }

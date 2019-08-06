@@ -1,14 +1,12 @@
 import React from 'react';
 import './SoundTextTest.scss'
 
-import Buttons from '../../Buttons/Buttons';
-
 function SoundTextTest(props: any) {
   return (
     <div className="question-wrapper">
       <div className="question-wrapper__question">
         <p className="question-wrapper__question-title">When someone says:</p>
-        <p className="question-wrapper__question-word">「我下星期要去看电影。」<button className="btn-play"/></p>
+        <p className="question-wrapper__question-word"><span>「我下星期要去看电影。」</span><button className="btn-play"/></p>
         <p className="question-wrapper__question-transcription">Your reply is:</p>
       </div>
       <div className="question-wrapper__answer">
@@ -33,7 +31,6 @@ function SoundTextTest(props: any) {
           <button className="btn-play question-wrapper__answer-audio"/>
         </label>
       </div>
-      <Buttons/>
     </div>
   )
 }
