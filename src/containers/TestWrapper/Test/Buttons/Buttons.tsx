@@ -1,12 +1,12 @@
 import React from 'react';
 import './Buttons.scss';
 
-function Buttons() {
+function Buttons(props: any) {
   return (
     <div className="question-buttons">
-      <button>Next</button>
-      <button className="gray">Not Sure</button>
-      <button className="red">I don’t know</button>
+      <button onClick={props.nextClick}>Next</button>
+      <button onClick={props.notSureClick} className="gray">Not Sure</button>
+      <button onClick={props.dontKnowClick} className="red">I don’t know</button>
     </div>
   )
 }

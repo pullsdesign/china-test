@@ -10,7 +10,7 @@ export default class TestWrapper extends React.Component<Object, State> {
     super(props);
 
     this.state = {
-      testStarted: true
+      testStarted: false
     };
 
     this.startTest = this.startTest.bind(this);

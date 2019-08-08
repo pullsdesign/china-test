@@ -76,7 +76,7 @@
       &:first-of-type {
         margin-left: 0;
       }
-      &:hover {
+      &:hover, &.active {
         -webkit-box-shadow: 0 4px 16px 5px rgba(36, 135, 193, 0.14);
         -moz-box-shadow: 0 4px 16px 5px rgba(36, 135, 193, 0.14);
         box-shadow: 0 4px 16px 5px rgba(36, 135, 193, 0.14);

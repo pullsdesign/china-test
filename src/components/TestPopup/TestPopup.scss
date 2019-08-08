@@ -1,0 +1,101 @@
+.test-popup {
+  position: absolute;
+  top: 61px;
+  bottom: 193px;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .4);
+
+  .test-popup__content {
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 83px;
+    max-width: 443px;
+    height: 100%;
+    max-height: 330px;
+    margin: auto;
+    -webkit-box-shadow: 0 4px 13.7px 4.3px rgba(33, 30, 31, 0.06);
+    -moz-box-shadow: 0 4px 13.7px 4.3px rgba(33, 30, 31, 0.06);
+    box-shadow: 0 4px 13.7px 4.3px rgba(33, 30, 31, 0.06);
+    border: solid 1px #9ea1a3;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    img {
+      width: 95px;
+      pointer-events: none;
+    }
+  }
+
+  .test-popup__content-text {
+    font-size: 1.714em;
+    font-weight: bold;
+    color: #0d1319;
+    padding-top: 55px;
+    margin-bottom: 37px;
+  }
+
+  .test-popup__bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #e1001e;
+
+    &.--lighter {
+      background-color: #1e84c0;
+
+      .test-popup__bar-btns {
+        button {
+          color: #1e84c0;
+        }
+      }
+    }
+  }
+
+  .test-popup__bar-title {
+    font-size: 1.714em;
+    color: rgba(0, 0, 0, 0.6);
+    letter-spacing: .06em;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: .8;
+    padding-top: 23px;
+  }
+
+  .test-popup__bar-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 33px;
+
+    button {
+      background-color: #fff;
+      -webkit-border-radius: 22px;
+      -moz-border-radius: 22px;
+      border-radius: 22px;
+      border: 0;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      height: 44px;
+      width: 214px;
+      color: #e1001e;
+      font-weight: 500;
+      margin-left: 18px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+}

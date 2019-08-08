@@ -1,38 +1,30 @@
 import React from 'react';
 import './SoundImageTest.scss';
 
-import testImg from '../../../../../assets/imgs/image-test.jpg';
+import Config from '../../../../../config';
 
 function SoundImageTest(props: any) {
+  const {question} = props;
+
+  if ( !question ) return null;
+
   return (
     <div className="question-wrapper --sound-image">
       <div className="question-wrapper__question">
-        <p className="question-wrapper__question-title">The sign goes <b>the most closely</b> with:</p>
+        <p className="question-wrapper__question-title" dangerouslySetInnerHTML={{__html: question.title}}/>
         <div className="question-wrapper__question-img">
-          <img src={testImg} alt="Img"/>
+          <img src={Config.PUBLIC_IMGS_URL + question.img} alt={question.img}/>
         </div>
       </div>
       <div className="question-wrapper__answer">
-        <label>
-          <input name="test" type="radio"/>
-          <p className="question-wrapper__answer-text">房地产</p>
-          <button className="btn-play question-wrapper__answer-audio"/>
-        </label>
-        <label>
-          <input name="test" type="radio"/>
-          <p className="question-wrapper__answer-text">公寓</p>
-          <button className="btn-play question-wrapper__answer-audio"/>
-        </label>
-        <label>
-          <input name="test" type="radio"/>
-          <p className="question-wrapper__answer-text">公共建筑</p>
-          <button className="btn-play question-wrapper__answer-audio"/>
-        </label>
-        <label>
-          <input name="test" type="radio"/>
-          <p className="question-wrapper__answer-text">政府大楼</p>
-          <button className="btn-play question-wrapper__answer-audio"/>
-        </label>
+        {question.answers.map( (answer: any) => (
+          <label key={answer._id} className={props.selectedAnswer === answer._id ? 'active' : ''}>
+            <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
+            <p className="question-wrapper__answer-text">{answer.text}</p>
+            <p className="question-wrapper__answer-subtext">{answer.subText}</p>
+            {/*<button className="btn-play question-wrapper__answer-audio"/>*/}
+          </label>
+        ))}
       </div>
     </div>
   )
