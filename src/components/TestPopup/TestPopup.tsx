@@ -16,8 +16,8 @@ function TestPopup(props: any) {
       <div className={props.popup.status === 'error' ? 'test-popup__bar' : 'test-popup__bar --lighter'}>
         {props.popup.status === 'error' ? (<p className="test-popup__bar-title">incorrect</p>) : ''}
         <div className="test-popup__bar-btns">
-          <button onClick={props.closePopUp}>Continue the test</button>
-          <button onClick={props.closePopUp}>Get my results</button>
+          <button onClick={props.continue}>Continue the test</button>
+          <button onClick={props.getResult}>Get my results</button>
         </div>
       </div>
     </div>

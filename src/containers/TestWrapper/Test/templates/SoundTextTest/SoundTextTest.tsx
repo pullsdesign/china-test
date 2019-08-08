@@ -19,7 +19,7 @@ function SoundTextTest(props: any) {
         {question.answers.map( (answer: any) => (
           <label key={answer._id} className={props.selectedAnswer === answer._id ? 'active' : ''}>
             <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
-            <p className="question-wrapper__answer-text">{answer.test}<br/>{answer.subText}</p>
+            <p className="question-wrapper__answer-text">{answer.text}<br/>{answer.subText}</p>
             <button className="btn-play question-wrapper__answer-audio"/>
           </label>
         ))}
