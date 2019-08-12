@@ -1,3 +1,4 @@
 export interface State {
-  testStarted: boolean
+  testStarted: boolean,
+  showQuestions: boolean
 }

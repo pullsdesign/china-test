@@ -8,9 +8,35 @@ import IntermediateIcon from '../../../assets/imgs/cpod_level_intermediate.svg'
 import UpperIntermediateIcon from '../../../assets/imgs/cpod_level_upper-intermediate.svg'
 import Advanced from '../../../assets/imgs/cpod_level_advanced.svg'
 
-const icons = [NewbieIcon, ElementaryIcon, PreIntermediateIcon, IntermediateIcon, UpperIntermediateIcon, Advanced];
+const icons = [
+  {
+    level: 'Newbie',
+    icon: NewbieIcon
+  },
+  {
+    level: 'Elementary',
+    icon: ElementaryIcon
+  },
+  {
+    level: 'Pre Intermediate',
+    icon: PreIntermediateIcon
+  },
+  {
+    level: 'Intermediate',
+    icon: IntermediateIcon
+  },
+  {
+    level: 'Upper Intermediate',
+    icon: UpperIntermediateIcon
+  },
+  {
+    level: 'Advanced',
+    icon: Advanced
+  }
+];
 
 function Result(props: any) {
+  console.log(props);
   const styles = {
     bar: {
       width: 10 * props.answers + '%'
@@ -22,18 +48,18 @@ function Result(props: any) {
 
   return(
     <div className="result">
-      <p className="result__title">You are recommended to the <span>Advanced 100 curriculum</span></p>
+      <p className="result__title">You are recommended to the <span>{icons[props.result - 1].level} 100 curriculum</span></p>
       <ul className="result__level">
         <li className={icons[props.result - 2] ? '' : 'hidden'}>
-          <img src={icons[props.result - 2]} alt="Intermediate"/>
+          <img src={icons[props.result - 2] ? icons[props.result - 2].icon : ''} alt="Intermediate"/>
           <span>Review the previous level</span>
         </li>
         <li>
-          <img src={icons[props.result - 1]} alt="Advanced"/>
+          <img src={icons[props.result - 1].icon} alt="Advanced"/>
           <span>Your recommended level</span>
         </li>
         <li className={icons[props.result] ? '' : 'hidden'}>
-          <img src={icons[props.result]} alt="Upper Intermediate"/>
+          <img src={icons[props.result].icon} alt="Upper Intermediate"/>
           <span>Preview the next level</span>
         </li>
       </ul>

@@ -21,6 +21,10 @@ function StartPage(props: Props) {
         className="start-page__btn"
         onClick={() => props.onStartTest()}
       >Go to the test<img src={LeftArrowIcon} alt="Arrow"/></button>
+      <button
+        className="start-page__btn temporary"
+        onClick={() => props.onQuestions()}
+      >Show all questions(temporary button)</button>
     </div>
   )
 }

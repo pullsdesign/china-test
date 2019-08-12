@@ -99,6 +99,12 @@
     box-shadow: none;
     border: 0;
 
+    &.temporary {
+      position: absolute;
+      bottom: 200px;
+      left: 6px;
+    }
+
     img {
       pointer-events: none;
       -webkit-user-select: none;

@@ -1,3 +1,4 @@
 export interface Props {
-  onStartTest: Function
+  onStartTest: Function,
+  onQuestions: Function
 }

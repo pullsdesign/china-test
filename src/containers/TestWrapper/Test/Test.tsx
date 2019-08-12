@@ -14,7 +14,10 @@ import Buttons from './Buttons/Buttons';
 import TestPopup from '../../../components/TestPopup/TestPopup';
 
 class Test extends React.Component<any, any> {
-  public correctAnswersCounter = 0;
+  public answersCounter = {
+    total: 0,
+    correct: 0
+  };
 
   private existQuestionsIDs: any = [];
 
@@ -33,9 +36,7 @@ class Test extends React.Component<any, any> {
     };
 
     this.questionSelected = this.questionSelected.bind(this);
-    this.btnNextClick = this.btnNextClick.bind(this);
-    this.btnNotSureClick = this.btnNotSureClick.bind(this);
-    this.btnDontKnowClick = this.btnDontKnowClick.bind(this);
+    this.checkQuestion = this.checkQuestion.bind(this);
     this.continueTheTest = this.continueTheTest.bind(this);
     this.getResult = this.getResult.bind(this);
   }
@@ -50,46 +51,37 @@ class Test extends React.Component<any, any> {
     });
   }
 
-  btnNextClick() {
+  private checkQuestion(clickedBtn: string) {
     if ( !this.state.selectedAnswer ) return false;
 
     Requests.post('checkAnswer', {questionID: this.state.currentQuestion._id, answerID: this.state.selectedAnswer})
       .then( res => {
         if ( res.data.status ) {
           if ( res.data.data ) {
-            this.correctAnswersCounter++;
+            this.answersCounter.correct++;
             this.getNextQuestion(this.state.currentLevel ? `level=${this.state.currentLevel}` : '');
           } else {
-            this.setState({
-              popup: {
-                shown: true,
-                status: 'error'
-              }
-            })
+            if ( clickedBtn === 'notSure' || clickedBtn === 'notKnow' ) {
+              this.setState({
+                popup: {
+                  shown: true,
+                  status: 'not worry'
+                }
+              })
+            } else {
+              this.setState({
+                popup: {
+                  shown: true,
+                  status: 'error'
+                }
+              })
+            }
           }
         } else {
           throw res.data.err;
         }
       }).catch( err => {
-        console.error(err);
-    })
-  }
-
-  btnNotSureClick() {
-    this.setState({
-      popup: {
-        shown: true,
-        status: 'not worry'
-      }
-    })
-  }
-
-  btnDontKnowClick() {
-    this.setState({
-      popup: {
-        shown: true,
-        status: 'error'
-      }
+      console.error(err);
     })
   }
 
@@ -111,7 +103,7 @@ class Test extends React.Component<any, any> {
 
   getNextQuestion(query?: string) {
 
-    if ( this.correctAnswersCounter >= 10 ) return this.getResult();
+    if ( this.answersCounter.total >= 9 ) return this.getResult();
 
     if ( this.state.currentQuestion && !query ) {
       const questionIndex = this.state.currentQuestion.index;
@@ -119,6 +111,7 @@ class Test extends React.Component<any, any> {
         currentQuestion: {...this.state.questions[questionIndex + 1], index: questionIndex + 1},
         selectedAnswer: ''
       });
+      this.answersCounter.total++;
     } else {
       Requests.get('question' + (query ? `?${query}` : ''))
         .then( res => {
@@ -135,7 +128,8 @@ class Test extends React.Component<any, any> {
               this.setState({
                 currentQuestion: question,
                 selectedAnswer: ''
-              })
+              });
+              this.answersCounter.total++;
             }
           } else {
             throw res.data.err;
@@ -175,7 +169,7 @@ class Test extends React.Component<any, any> {
 
   render() {
 
-    if ( this.state.showResult ) return <Result answers={this.correctAnswersCounter} result={this.state.currentLevel}/>;
+    if ( this.state.showResult ) return <Result answers={this.answersCounter.correct} result={this.state.currentLevel}/>;
 
     let template = null;
     try {
@@ -231,9 +225,9 @@ class Test extends React.Component<any, any> {
       <div className="full-page">
         {template}
         <Buttons
-          nextClick={this.btnNextClick}
-          notSureClick={this.btnNotSureClick}
-          dontKnowClick={this.btnDontKnowClick}
+          nextClick={() => this.checkQuestion('next')}
+          notSureClick={() => this.checkQuestion('notSure')}
+          dontKnowClick={() => this.checkQuestion('notKnow')}
         />
         <TestPopup
           popup={this.state.popup}
