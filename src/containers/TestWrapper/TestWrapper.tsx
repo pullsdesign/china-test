@@ -6,6 +6,7 @@ import StartPage from './StartPage/StartPage';
 import Test from './Test/Test';
 
 import Questions from './Questions/Questions';
+import Stub from './Stub/Stub';
 
 export default class TestWrapper extends React.Component<Object, State> {
   constructor(props: any) {
@@ -13,17 +14,26 @@ export default class TestWrapper extends React.Component<Object, State> {
 
     this.state = {
       testStarted: false,
-      showQuestions: false
+      showQuestions: false,
+      pinyin: false
     };
 
     this.startTest = this.startTest.bind(this);
     this.goToQuestions = this.goToQuestions.bind(this);
+    this.goToStartPage = this.goToStartPage.bind(this);
   }
 
-  startTest() {
-    this.setState({
-      testStarted: true
-    })
+  startTest(e: any) {
+    if ( e.checked ) {
+      this.setState({
+        testStarted: true,
+        pinyin: true
+      })
+    } else {
+      this.setState({
+        testStarted: true
+      })
+    }
   }
 
   goToQuestions() {
@@ -32,14 +42,23 @@ export default class TestWrapper extends React.Component<Object, State> {
     });
   }
 
+  goToStartPage() {
+    this.setState({
+      testStarted: false,
+      pinyin: false
+    })
+  }
+
   render() {
 
     if ( this.state.showQuestions ) return <Questions/>;
 
+    if ( this.state.testStarted && this.state.pinyin ) return <Stub onStartPage={this.goToStartPage} />;
+
     return (
       <div className="test-wrapper container">
         {
-          this.state.testStarted ? <Test/> : <StartPage onStartTest={this.startTest} onQuestions={this.goToQuestions}/>
+          this.state.testStarted ? <Test/> : <StartPage onStartTest={(e: Event) => this.startTest(e)} onQuestions={this.goToQuestions}/>
         }
       </div>
     )

@@ -6,6 +6,7 @@ import Lighter from '../../../assets/imgs/lighter-icon.png';
 import LeftArrowIcon from '../../../assets/imgs/left-arrow.png'
 
 function StartPage(props: Props) {
+
   return (
     <div className="start-page">
       <p className="start-page__title">Welcome to ChinesePod placement test</p>
@@ -14,12 +15,12 @@ function StartPage(props: Props) {
       <label className="start-page__option">
         <img src={Lighter} alt="Lighter icon"/>
         <p>I want to use<br/>TRADITIONAL characters</p>
-        <input type="checkbox"/>
+        <input type="checkbox" id="characters"/>
         <span className="start-page__checkbox-immit"/>
       </label>
       <button
         className="start-page__btn"
-        onClick={() => props.onStartTest()}
+        onClick={() => props.onStartTest(document.getElementById('characters'))}
       >Go to the test<img src={LeftArrowIcon} alt="Arrow"/></button>
       <button
         className="start-page__btn temporary"

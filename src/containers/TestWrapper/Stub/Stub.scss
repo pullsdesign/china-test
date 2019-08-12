@@ -1,0 +1,27 @@
+.stub-page {
+  text-align: center;
+
+  .stub-page__title {
+    font-size: 2rem;
+  }
+
+  .stub-page__btn {
+    margin: 69px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    background-color: #00B233;
+    border-radius: 22px;
+    color: #fff;
+    padding: 5px 50px;
+    letter-spacing: .025em;
+    box-shadow: none;
+    border: 0;
+    
+    img {
+      margin-right: 7px;
+      width: 15px;
+    }
+  }
+}
