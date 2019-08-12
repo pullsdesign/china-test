@@ -1,5 +1,6 @@
 import React from 'react';
 import './SoundTextTest.scss'
+import Config from "../../../../../config";
 
 function SoundTextTest(props: any) {
   const {question} = props;
@@ -11,21 +12,59 @@ function SoundTextTest(props: any) {
       <div className="question-wrapper__question">
         <p className="question-wrapper__question-title" dangerouslySetInnerHTML={{__html: question.title}}/>
         <p className="question-wrapper__question-word">
-          <span dangerouslySetInnerHTML={{__html: question.question}}/><button className="btn-play"/>
+          <span dangerouslySetInnerHTML={{__html: question.question}}/>
+          <button
+            className="btn-play"
+            onClick={() => playAudio('questionSound')}
+          />
+          <audio className="audio" id="questionSound">
+            <source src={Config.PUBLIC_SOUNDS_URL + question.sound} type="audio/wav"/>
+          </audio>
         </p>
         <p className="question-wrapper__question-transcription" dangerouslySetInnerHTML={{__html: question.clarification}}/>
       </div>
       <div className="question-wrapper__answer">
         {question.answers.map( (answer: any) => (
-          <label key={answer._id} className={props.selectedAnswer === answer._id ? 'active' : ''}>
+          <label
+            key={answer._id}
+            className={props.selectedAnswer === answer._id ? 'active' : ''}
+            onMouseOver={() => playAudio(answer._id)}
+            onMouseLeave={() => stopAudio(answer._id)}
+          >
             <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
             <p className="question-wrapper__answer-text">{answer.text}<br/>{answer.subText}</p>
-            <button className="btn-play question-wrapper__answer-audio"/>
+            {/*<button className="btn-play question-wrapper__answer-audio"/>*/}
+            <audio className="audio" id={answer._id}>
+              <source src={Config.PUBLIC_SOUNDS_URL + answer.sound} type="audio/wav"/>
+            </audio>
           </label>
         ))}
       </div>
     </div>
   )
+}
+
+function playAudio(id: string) {
+  const source: any = document.getElementById(id);
+  if ( source ) {
+    try {
+      source.play();
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+
+function stopAudio(id: string) {
+  const source: any = document.getElementById(id);
+  if ( source ) {
+    try {
+      source.pause();
+      source.currentTime = 0;
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }
 
 export default SoundTextTest;

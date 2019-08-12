@@ -1,5 +1,6 @@
 import React from 'react';
 import './TextTest.scss';
+import Config from "../../../../../config";
 
 function TextTest(props: any) {
   const {question} = props;
@@ -13,15 +14,46 @@ function TextTest(props: any) {
       </div>
       <div className="question-wrapper__answer">
         {question.answers.map( (answer: any) => (
-          <label key={answer._id} className={props.selectedAnswer === answer._id ? 'active' : ''}>
+          <label
+            key={answer._id}
+            className={props.selectedAnswer === answer._id ? 'active' : ''}
+            onMouseOver={() => playAudio(answer._id)}
+            onMouseLeave={() => stopAudio(answer._id)}
+          >
             <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
             <p className="question-wrapper__answer-text">{answer.text}</p>
             <p className="question-wrapper__answer-subscr">{answer.subText}</p>
+            <audio className="audio" id={answer._id}>
+              <source src={Config.PUBLIC_SOUNDS_URL + answer.sound} type="audio/wav"/>
+            </audio>
           </label>
         ))}
       </div>
     </div>
   )
+}
+
+function playAudio(id: string) {
+  const source: any = document.getElementById(id);
+  if ( source ) {
+    try {
+      source.play();
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+
+function stopAudio(id: string) {
+  const source: any = document.getElementById(id);
+  if ( source ) {
+    try {
+      source.pause();
+      source.currentTime = 0;
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }
 
 export default TextTest;

@@ -12,7 +12,14 @@ function ImageTest(props: any) {
       <div className="question-wrapper__question">
         <p className="question-wrapper__question-title" dangerouslySetInnerHTML={{__html: question.title}}/>
         <p className="question-wrapper__question-word">
-          <span dangerouslySetInnerHTML={{__html: question.question}}/><button className="btn-play"/>
+          <span dangerouslySetInnerHTML={{__html: question.question}}/>
+          <button
+            onClick={() => playAudio('questionSound')}
+            className="btn-play"
+          />
+          <audio className="audio" id="questionSound">
+            <source src={Config.PUBLIC_SOUNDS_URL + question.sound} type="audio/wav"/>
+          </audio>
         </p>
         <p className="question-wrapper__question-transcription" dangerouslySetInnerHTML={{__html: question.clarification}}/>
       </div>
@@ -26,6 +33,17 @@ function ImageTest(props: any) {
       </div>
     </div>
   )
+}
+
+function playAudio(id: string) {
+  const source: any = document.getElementById(id);
+  if ( source ) {
+    try {
+      source.play();
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }
 
 export default ImageTest;
