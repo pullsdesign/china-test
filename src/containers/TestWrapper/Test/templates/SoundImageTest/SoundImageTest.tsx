@@ -21,8 +21,8 @@ function SoundImageTest(props: any) {
           <label
             key={answer._id}
             className={props.selectedAnswer === answer._id ? 'active' : ''}
-            onMouseOver={() => playAudio(answer._id)}
-            onMouseLeave={() => stopAudio(answer._id)}
+            onMouseOver={() => playAudio(answer._id, answer.sound)}
+            onMouseLeave={() => stopAudio(answer._id, answer.sound)}
           >
             <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
             <p className="question-wrapper__answer-text">{answer.text}</p>
@@ -38,7 +38,8 @@ function SoundImageTest(props: any) {
   )
 }
 
-function playAudio(id: string) {
+function playAudio(id: string, sound: string) {
+  if ( !sound ) return false;
   const source: any = document.getElementById(id);
   if ( source ) {
     try {
@@ -49,7 +50,8 @@ function playAudio(id: string) {
   }
 }
 
-function stopAudio(id: string) {
+function stopAudio(id: string, sound: string) {
+  if ( !sound ) return false;
   const source: any = document.getElementById(id);
   if ( source ) {
     try {

@@ -121,3 +121,14 @@
     }
   }
 }
+
+@media screen and (max-width: 640px) {
+  .start-page {
+    padding-top: 20px;
+
+    .start-page__option {
+      width: 100%;
+      max-width: 430px;
+    }
+  }
+}

@@ -14,7 +14,7 @@ function ImageTest(props: any) {
         <p className="question-wrapper__question-word">
           <span dangerouslySetInnerHTML={{__html: question.question}}/>
           <button
-            onClick={() => playAudio('questionSound')}
+            onClick={() => playAudio('questionSound', question.sound)}
             className="btn-play"
           />
           <audio className="audio" id="questionSound">
@@ -35,7 +35,8 @@ function ImageTest(props: any) {
   )
 }
 
-function playAudio(id: string) {
+function playAudio(id: string, sound: string) {
+  if ( !sound ) return false;
   const source: any = document.getElementById(id);
   if ( source ) {
     try {

@@ -28,3 +28,30 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .question-buttons {
+    padding-top: 70px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .question-buttons {
+    button {
+      width: 200px;
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .question-buttons {
+    button {
+      width: 100%;
+      max-width: 250px;
+      display: block;
+      clear: both;
+      margin: 12px auto;
+      &:first-of-type {
+        margin-left: auto;
+      }
+    }
+  }
+}

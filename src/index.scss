@@ -43,3 +43,32 @@ button {
   height: 100%;
   width: 100%;
 }
+
+@media screen and (max-width: 1170px) {
+  .container {
+    width: 970px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .container {
+    width: 740px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .full-page {
+    height: auto;
+  }
+}
+@media screen and (max-width: 640px) {
+  body {
+    font-size: 13px;
+  }
+
+  .start-page__btn.temporary {
+    display: none !important;
+  }
+}

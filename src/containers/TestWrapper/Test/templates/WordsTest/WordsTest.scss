@@ -3,6 +3,12 @@
     .question-wrapper__question-word {
       font-weight: bolder;
       max-width: 800px;
+      font-size: .8em;
+
+      span {
+        display: block;
+        font-size: .75em;
+      }
     }
   }
 

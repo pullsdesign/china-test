@@ -65,3 +65,43 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .footer {
+    .footer__blog {
+      margin-left: 50px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer {
+    .footer__blog {
+      margin-left: 8px;
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer {
+    height: auto;
+    padding-top: 20px;
+
+    .container {
+      flex-direction: column;
+    }
+
+    .footer__blog {
+      margin-left: 0;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 15px;
+
+      p, a {
+        margin-top: 5px;
+      }
+    }
+
+    .footer__socials {
+      padding-top: 10px;
+    }
+  }
+}

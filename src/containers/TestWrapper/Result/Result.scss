@@ -135,3 +135,30 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .result {
+    padding: 10vh 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  .result {
+    width: 100%;
+
+    .result__level {
+      padding-top: 55px;
+
+      li {
+        display: none;
+        &:nth-child(2) {
+          display: flex;
+          width: 150px;
+          margin: auto;
+        }
+      }
+    }
+    .result__bar {
+      display: none;
+    }
+  }
+}
