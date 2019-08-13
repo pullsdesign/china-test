@@ -18,7 +18,7 @@ function ImageTest(props: any) {
             className="btn-play"
           />
           <audio className="audio" id="questionSound">
-            <source src={Config.PUBLIC_SOUNDS_URL + question.sound} type="audio/wav"/>
+            <source src={question.sound ? Config.PUBLIC_SOUNDS_URL + question.sound : ''} type="audio/wav"/>
           </audio>
         </p>
         <p className="question-wrapper__question-transcription" dangerouslySetInnerHTML={{__html: question.clarification}}/>

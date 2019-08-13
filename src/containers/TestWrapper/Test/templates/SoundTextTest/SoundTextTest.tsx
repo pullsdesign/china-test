@@ -18,7 +18,7 @@ function SoundTextTest(props: any) {
             onClick={() => playAudio('questionSound', question.sound)}
           />
           <audio className="audio" id="questionSound">
-            <source src={Config.PUBLIC_SOUNDS_URL + question.sound} type="audio/wav"/>
+            <source src={question.sound ? Config.PUBLIC_SOUNDS_URL + question.sound : ''} type="audio/wav"/>
           </audio>
         </p>
         <p className="question-wrapper__question-transcription" dangerouslySetInnerHTML={{__html: question.clarification}}/>
@@ -32,10 +32,10 @@ function SoundTextTest(props: any) {
             onMouseLeave={() => stopAudio(answer._id, answer.sound)}
           >
             <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
-            <p className="question-wrapper__answer-text">{answer.text}<br/>{answer.subText}</p>
+            <p className="question-wrapper__answer-text"><span>{answer.text}</span><br/><span>{answer.subText}</span></p>
             {/*<button className="btn-play question-wrapper__answer-audio"/>*/}
             <audio className="audio" id={answer._id}>
-              <source src={Config.PUBLIC_SOUNDS_URL + answer.sound} type="audio/wav"/>
+              <source src={answer.sound ? Config.PUBLIC_SOUNDS_URL + answer.sound : ''} type="audio/wav"/>
             </audio>
           </label>
         ))}

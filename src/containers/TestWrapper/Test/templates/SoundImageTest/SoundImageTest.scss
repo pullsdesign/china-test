@@ -21,8 +21,10 @@
       flex-direction: column;
 
       img {
-        max-width: 211px;
-        max-height: 118px;
+        //max-width: 211px;
+        //max-height: 118px;
+        width: 100%;
+        height: auto;
       }
     }
 

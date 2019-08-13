@@ -37,6 +37,7 @@ button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .full-page {

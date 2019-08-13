@@ -24,7 +24,7 @@ function TextTest(props: any) {
             <p className="question-wrapper__answer-text">{answer.text}</p>
             <p className="question-wrapper__answer-subscr">{answer.subText}</p>
             <audio className="audio" id={answer._id}>
-              <source src={Config.PUBLIC_SOUNDS_URL + answer.sound} type="audio/wav"/>
+              <source src={answer.sound ? Config.PUBLIC_SOUNDS_URL + answer.sound : ''} type="audio/wav"/>
             </audio>
           </label>
         ))}

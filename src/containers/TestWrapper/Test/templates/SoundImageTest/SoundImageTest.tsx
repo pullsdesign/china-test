@@ -29,7 +29,7 @@ function SoundImageTest(props: any) {
             <p className="question-wrapper__answer-subtext">{answer.subText}</p>
             {/*<button className="btn-play question-wrapper__answer-audio"/>*/}
             <audio className="audio" id={answer._id}>
-              <source src={Config.PUBLIC_SOUNDS_URL + answer.sound} type="audio/wav"/>
+              <source src={answer.sound ? Config.PUBLIC_SOUNDS_URL + answer.sound : ''} type="audio/wav"/>
             </audio>
           </label>
         ))}

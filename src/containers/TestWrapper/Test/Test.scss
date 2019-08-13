@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     flex-direction: column;
     font-size: 1.5em;
     margin-bottom: auto;
@@ -23,6 +24,8 @@
 
     .question-wrapper__question-title {
       letter-spacing: .025em;
+      width: 100%;
+      text-align: center;
     }
 
     .question-wrapper__question-word {
@@ -32,6 +35,12 @@
       letter-spacing: .035em;
       margin-top: 20px;
       margin-bottom: 15px;
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      max-height: 245px;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
 
       span {
         width: calc(100% - 30px);
@@ -44,7 +53,8 @@
 
     .question-wrapper__question-transcription {
       letter-spacing: .025em;
-      margin-top: 22px;
+      margin-top: 5px;
+      font-size: .85em;
     }
   }
 
@@ -73,6 +83,7 @@
       -o-transition: all .3s;
       transition: all .3s;
       cursor: pointer;
+      padding: 10px;
       &:first-of-type {
         margin-left: 0;
       }
@@ -97,6 +108,10 @@
       visibility: hidden;
       pointer-events: none;
       position: absolute;
+    }
+
+    .question-wrapper__answer-subtext {
+      font-size: 1rem;
     }
   }
 
@@ -136,6 +151,20 @@
         &:first-of-type {
           margin-left: 10px;
         }
+
+        img {
+          width: auto !important;
+        }
+      }
+    }
+
+    .question-wrapper__question {
+      max-height: none;
+
+      .question-wrapper__question-word {
+        max-height: none;
+        height: auto;
+        overflow: visible;
       }
     }
   }
@@ -147,5 +176,51 @@
       width: 100%;
       padding: 5px 15px;
     }
+  }
+}
+@media screen and (max-width: 480px) {
+  .question-wrapper {
+    .question-wrapper__question {
+      .question-wrapper__question-word {
+        padding-left: 0 !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 890px) {
+  .App {
+    height: auto;
+    display: block;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .question-wrapper__question {
+    margin-bottom: 30px !important;
+  }
+
+  .start-page {
+    height: calc( 100vh - 319px );
+  }
+
+  .test-popup {
+    bottom: 0 !important;
+    top: 0 !important;
+  }
+
+  .result {
+    height: calc( 100vh - 319px ) !important;
+  }
+}
+@media screen and (max-height: 770px) {
+  .start-page {
+    height: auto;
+  }
+  .result {
+    padding: 50px 0;
+    height: auto !important;
   }
 }

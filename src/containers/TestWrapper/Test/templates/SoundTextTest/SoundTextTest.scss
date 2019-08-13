@@ -2,6 +2,10 @@
   .question-wrapper__question {
     .question-wrapper__question-word {
       font-weight: bolder;
+
+      span {
+        font-weight: bolder !important;
+      }
     }
   }
 
@@ -10,8 +14,10 @@
       flex-direction: column;
 
       img {
-        max-width: 211px;
-        max-height: 118px;
+        //max-width: 211px;
+        //max-height: 118px;
+        width: 100%;
+        height: auto;
       }
     }
 
@@ -24,5 +30,20 @@
     font-weight: bolder;
     font-size: 20px;
     text-align: center;
+
+    span {
+      &:nth-child(3) {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .question-wrapper {
+    .question-wrapper__answer-text {
+      font-size: 17px;
+    }
   }
 }

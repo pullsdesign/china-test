@@ -81,8 +81,8 @@ class Test extends React.Component<any, any> {
           throw res.data.err;
         }
       }).catch( err => {
-      console.error(err);
-    })
+        console.error(err);
+      })
   }
 
   getBasicQuestions() {
