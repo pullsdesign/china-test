@@ -25,3 +25,20 @@
     }
   }
 }
+
+@media screen and (max-height: 890px) {
+  .stub-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc( 100vh - 274px );
+  }
+}
+@media screen and (max-height: 600px) {
+  .stub-page {
+    .stub-page__btn {
+      margin: 35px auto 0;
+    }
+  }
+}
