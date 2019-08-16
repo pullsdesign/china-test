@@ -5,10 +5,12 @@
       max-width: 800px;
       font-size: .9em;
       padding-left: 49px;
+      text-align: center;
 
       > div {
         div {
           display: flex;
+          text-align: left;
 
           p {
             font-weight: bolder;

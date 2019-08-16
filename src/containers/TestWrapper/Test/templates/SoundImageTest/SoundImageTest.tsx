@@ -10,7 +10,9 @@ function SoundImageTest(props: any) {
   if ( !question ) return null;
 
   const playAudio = (sound: string) => {
-    if ( !sound || playingAudio ) return false;
+    if ( !sound ) return false;
+
+    if ( playingAudio ) stopAudio(sound);
 
     try {
       playingAudio = new Audio(Config.PUBLIC_SOUNDS_URL + sound + '?' + Date.now());

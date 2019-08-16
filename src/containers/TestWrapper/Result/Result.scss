@@ -7,15 +7,15 @@
 
   .result__title {
     font-size: 2em;
-    color: #707070;
     line-height: 37px;
     letter-spacing: .05em;
     font-weight: bold;
     text-align: center;
+    color: #0d1319;
 
     span {
       display: block;
-      color: #0d1319;
+      color: red;
     }
   }
 

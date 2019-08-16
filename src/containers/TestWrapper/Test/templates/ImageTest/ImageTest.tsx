@@ -9,7 +9,9 @@ function ImageTest(props: any) {
   if ( !question ) return null;
 
   const playAudio = (sound: string) => {
-    if ( !sound || playingAudio ) return false;
+    if ( !sound ) return false;
+
+    if ( playingAudio ) stopAudio(sound);
 
     try {
       playingAudio = new Audio(Config.PUBLIC_SOUNDS_URL + sound + '?' + Date.now());
@@ -17,7 +19,7 @@ function ImageTest(props: any) {
     } catch (e) {}
   };
 
-  /*const stopAudio = (sound: string) => {
+  const stopAudio = (sound: string) => {
     if ( !sound || !playingAudio ) return false;
 
     try {
@@ -27,7 +29,7 @@ function ImageTest(props: any) {
     } catch (e) {
       console.error(e);
     }
-  };*/
+  };
 
   return (
     <div className="question-wrapper">

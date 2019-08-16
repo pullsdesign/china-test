@@ -44,7 +44,7 @@ export default class TestWrapper extends React.Component<Object, State> {
 
   goToStartPage() {
     this.setState({
-      testStarted: false,
+      testStarted: true,
       pinyin: false
     })
   }

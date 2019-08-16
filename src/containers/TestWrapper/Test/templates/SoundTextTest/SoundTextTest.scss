@@ -2,10 +2,6 @@
   .question-wrapper__question {
     .question-wrapper__question-word {
       font-weight: bolder;
-
-      span {
-        font-weight: bolder !important;
-      }
     }
   }
 
@@ -27,7 +23,7 @@
   }
 
   .question-wrapper__answer-text {
-    font-weight: bolder;
+    //font-weight: bolder;
     font-size: 20px;
     text-align: center;
 

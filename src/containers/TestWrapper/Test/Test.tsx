@@ -52,6 +52,14 @@ class Test extends React.Component<any, any> {
   }
 
   private checkQuestion(clickedBtn: string) {
+    if ( clickedBtn === 'back' ) {
+      const questionIndex = this.state.currentQuestion.index;
+      this.setState({
+        currentQuestion: {...this.state.questions[questionIndex - 1], index: questionIndex - 1},
+        selectedAnswer: ''
+      });
+      return;
+    }
     this.getNextQuestion('');
     // if ( !this.state.selectedAnswer ) return false;
 
@@ -229,6 +237,7 @@ class Test extends React.Component<any, any> {
           nextClick={() => this.checkQuestion('next')}
           notSureClick={() => this.checkQuestion('notSure')}
           dontKnowClick={() => this.checkQuestion('notKnow')}
+          backClick={() => this.checkQuestion('back')}
         />
         <TestPopup
           popup={this.state.popup}
