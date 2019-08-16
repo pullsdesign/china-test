@@ -52,9 +52,10 @@ class Test extends React.Component<any, any> {
   }
 
   private checkQuestion(clickedBtn: string) {
-    if ( !this.state.selectedAnswer ) return false;
+    this.getNextQuestion('');
+    // if ( !this.state.selectedAnswer ) return false;
 
-    Requests.post('checkAnswer', {questionID: this.state.currentQuestion._id, answerID: this.state.selectedAnswer})
+    /*Requests.post('checkAnswer', {questionID: this.state.currentQuestion._id, answerID: this.state.selectedAnswer})
       .then( res => {
         if ( res.data.status ) {
           if ( res.data.data ) {
@@ -82,7 +83,7 @@ class Test extends React.Component<any, any> {
         }
       }).catch( err => {
         console.error(err);
-      })
+      })*/
   }
 
   getBasicQuestions() {
@@ -103,7 +104,7 @@ class Test extends React.Component<any, any> {
 
   getNextQuestion(query?: string) {
 
-    if ( this.answersCounter.total >= 9 ) return this.getResult();
+    // if ( this.answersCounter.total >= 9 ) return this.getResult();
 
     if ( this.state.currentQuestion && !query ) {
       const questionIndex = this.state.currentQuestion.index;

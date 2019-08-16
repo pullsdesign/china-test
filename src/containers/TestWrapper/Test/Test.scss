@@ -226,6 +226,13 @@
   .question-wrapper {
     flex-grow: 1;
     justify-content: space-between;
+    &.--sound-image {
+      .question-wrapper__question {
+        .question-wrapper__question-img {
+          padding-top: 10px !important;
+        }
+      }
+    }
   }
 }
 @media screen and (max-height: 770px) {

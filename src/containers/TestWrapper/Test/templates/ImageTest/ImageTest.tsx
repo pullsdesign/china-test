@@ -4,8 +4,30 @@ import Config from '../../../../../config';
 
 function ImageTest(props: any) {
   const {question} = props;
+  let playingAudio: any;
 
   if ( !question ) return null;
+
+  const playAudio = (sound: string) => {
+    if ( !sound || playingAudio ) return false;
+
+    try {
+      playingAudio = new Audio(Config.PUBLIC_SOUNDS_URL + sound + '?' + Date.now());
+      playingAudio.play();
+    } catch (e) {}
+  };
+
+  /*const stopAudio = (sound: string) => {
+    if ( !sound || !playingAudio ) return false;
+
+    try {
+      playingAudio.pause();
+      playingAudio.currentTime = 0;
+      playingAudio = null;
+    } catch (e) {
+      console.error(e);
+    }
+  };*/
 
   return (
     <div className="question-wrapper">
@@ -14,12 +36,9 @@ function ImageTest(props: any) {
         <p className="question-wrapper__question-word">
           <span dangerouslySetInnerHTML={{__html: question.question}}/>
           <button
-            onClick={() => playAudio('questionSound', question.sound)}
+            onClick={() => playAudio(question.sound)}
             className="btn-play"
           />
-          <audio className="audio" id="questionSound">
-            <source src={question.sound ? Config.PUBLIC_SOUNDS_URL + question.sound : ''} type="audio/wav"/>
-          </audio>
         </p>
         <p className="question-wrapper__question-transcription" dangerouslySetInnerHTML={{__html: question.clarification}}/>
       </div>
@@ -33,18 +52,6 @@ function ImageTest(props: any) {
       </div>
     </div>
   )
-}
-
-function playAudio(id: string, sound: string) {
-  if ( !sound ) return false;
-  const source: any = document.getElementById(id);
-  if ( source ) {
-    try {
-      source.play();
-    } catch (e) {
-      console.error(e);
-    }
-  }
 }
 
 export default ImageTest;
