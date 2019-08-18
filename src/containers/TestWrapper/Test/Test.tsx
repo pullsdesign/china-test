@@ -180,20 +180,15 @@ class Test extends React.Component<any, any> {
 
     if ( this.playingAudio ) this.stopAudio();
 
-    try {
-      this.playingAudio = new Audio(Config.PUBLIC_SOUNDS_URL + sound + '?' + Date.now());
-      this.playingAudio.play();
-    } catch (e) {}
+    this.playingAudio = new Audio(Config.PUBLIC_SOUNDS_URL + sound + '?' + Date.now());
+    this.playingAudio.play();
   }
 
   stopAudio() {
     if ( !this.playingAudio ) return false;
 
-    try {
-      this.playingAudio.pause();
-      this.playingAudio.currentTime = 0;
-      this.playingAudio = null;
-    } catch (e) {}
+    this.playingAudio.pause();
+    this.playingAudio = null;
   }
 
   private checkIsExistQuestion(questionID: string) {
