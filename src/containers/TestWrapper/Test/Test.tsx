@@ -12,12 +12,14 @@ import WordsTest from './templates/WordsTest/WordsTest';
 import Result from '../Result/Result';
 import Buttons from './Buttons/Buttons';
 import TestPopup from '../../../components/TestPopup/TestPopup';
+import Config from "../../../config";
 
 class Test extends React.Component<any, any> {
   public answersCounter = {
     total: 0,
     correct: 0
   };
+  private playingAudio: any;
 
   private existQuestionsIDs: any = [];
 
@@ -52,6 +54,7 @@ class Test extends React.Component<any, any> {
   }
 
   private checkQuestion(clickedBtn: string) {
+    this.stopAudio();
     if ( clickedBtn === 'back' ) {
       const questionIndex = this.state.currentQuestion.index;
       this.setState({
@@ -172,6 +175,27 @@ class Test extends React.Component<any, any> {
     })
   }
 
+  playSound(sound: string) {
+    if ( !sound ) return false;
+
+    if ( this.playingAudio ) this.stopAudio();
+
+    try {
+      this.playingAudio = new Audio(Config.PUBLIC_SOUNDS_URL + sound + '?' + Date.now());
+      this.playingAudio.play();
+    } catch (e) {}
+  }
+
+  stopAudio() {
+    if ( !this.playingAudio ) return false;
+
+    try {
+      this.playingAudio.pause();
+      this.playingAudio.currentTime = 0;
+      this.playingAudio = null;
+    } catch (e) {}
+  }
+
   private checkIsExistQuestion(questionID: string) {
     return this.existQuestionsIDs.indexOf(questionID) > -1;
   }
@@ -189,6 +213,7 @@ class Test extends React.Component<any, any> {
               selectHandler={this.questionSelected}
               question={this.state.currentQuestion}
               selectedAnswer={this.state.selectedAnswer}
+              audioPlay={(sound: any) => this.playSound(sound)}
             />;
             break;
           case 2:
@@ -196,6 +221,8 @@ class Test extends React.Component<any, any> {
               selectHandler={this.questionSelected}
               question={this.state.currentQuestion}
               selectedAnswer={this.state.selectedAnswer}
+              audioPlay={(sound: any) => this.playSound(sound)}
+              audioStop={() => this.stopAudio()}
             />;
             break;
           case 3:
@@ -203,6 +230,8 @@ class Test extends React.Component<any, any> {
               selectHandler={this.questionSelected}
               question={this.state.currentQuestion}
               selectedAnswer={this.state.selectedAnswer}
+              audioPlay={(sound: any) => this.playSound(sound)}
+              audioStop={() => this.stopAudio()}
             />;
             break;
           case 4:
@@ -210,6 +239,8 @@ class Test extends React.Component<any, any> {
               selectHandler={this.questionSelected}
               question={this.state.currentQuestion}
               selectedAnswer={this.state.selectedAnswer}
+              audioPlay={(sound: any) => this.playSound(sound)}
+              audioStop={() => this.stopAudio()}
             />;
             break;
           case 5:
@@ -217,6 +248,8 @@ class Test extends React.Component<any, any> {
               selectHandler={this.questionSelected}
               question={this.state.currentQuestion}
               selectedAnswer={this.state.selectedAnswer}
+              audioPlay={(sound: any) => this.playSound(sound)}
+              audioStop={() => this.stopAudio()}
             />;
             break;
           default:
@@ -224,6 +257,7 @@ class Test extends React.Component<any, any> {
               selectHandler={this.questionSelected}
               question={this.state.currentQuestion}
               selectedAnswer={this.state.selectedAnswer}
+              audioPlay={(sound: any) => this.playSound(sound)}
             />;
         }
       }

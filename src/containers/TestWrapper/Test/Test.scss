@@ -70,8 +70,16 @@
     .question-wrapper__question-transcription {
       letter-spacing: .025em;
       margin-top: 5px;
-      font-size: .85em;
+      font-size: 1rem;
     }
+  }
+
+  .question-wrapper__answer-text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
   }
 
   .question-wrapper__answer {
@@ -152,6 +160,18 @@
   pointer-events: none;
 }
 
+.q-wrap {
+  position: relative;
+
+  .btn-play {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .question-wrapper {
     height: auto;
@@ -219,7 +239,7 @@
   }
 
   .start-page {
-    height: calc( 100vh - 315px );
+    height: calc( 100vh - 269px );
   }
 
   .test-popup {
@@ -232,7 +252,7 @@
   }
 
   .full-page {
-    min-height: calc( 100vh - 315px );
+    min-height: calc( 100vh - 269px );
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -4,32 +4,8 @@ import Config from '../../../../../config';
 
 function ImageTest(props: any) {
   const {question} = props;
-  let playingAudio: any;
 
   if ( !question ) return null;
-
-  const playAudio = (sound: string) => {
-    if ( !sound ) return false;
-
-    if ( playingAudio ) stopAudio(sound);
-
-    try {
-      playingAudio = new Audio(Config.PUBLIC_SOUNDS_URL + sound + '?' + Date.now());
-      playingAudio.play();
-    } catch (e) {}
-  };
-
-  const stopAudio = (sound: string) => {
-    if ( !sound || !playingAudio ) return false;
-
-    try {
-      playingAudio.pause();
-      playingAudio.currentTime = 0;
-      playingAudio = null;
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   return (
     <div className="question-wrapper">
@@ -38,7 +14,7 @@ function ImageTest(props: any) {
         <p className="question-wrapper__question-word">
           <span dangerouslySetInnerHTML={{__html: question.question}}/>
           <button
-            onClick={() => playAudio(question.sound)}
+            onClick={() => props.audioPlay(question.sound)}
             className="btn-play"
           />
         </p>
