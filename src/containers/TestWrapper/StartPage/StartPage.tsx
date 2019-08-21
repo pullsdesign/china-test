@@ -22,10 +22,10 @@ function StartPage(props: Props) {
         className="start-page__btn"
         onClick={() => props.onStartTest(document.getElementById('characters'))}
       >Go to the test<img src={LeftArrowIcon} alt="Arrow"/></button>
-      <button
+      {/*<button
         className="start-page__btn temporary"
         onClick={() => props.onQuestions()}
-      >Show all questions(temporary button)</button>
+      >Show all questions(temporary button)</button>*/}
     </div>
   )
 }

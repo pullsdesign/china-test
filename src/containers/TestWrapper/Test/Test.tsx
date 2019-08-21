@@ -55,7 +55,7 @@ class Test extends React.Component<any, any> {
 
   private checkQuestion(clickedBtn: string) {
     this.stopAudio();
-    if ( clickedBtn === 'back' ) {
+    /*if ( clickedBtn === 'back' ) {
       const questionIndex = this.state.currentQuestion.index;
       this.setState({
         currentQuestion: {...this.state.questions[questionIndex - 1], index: questionIndex - 1},
@@ -63,10 +63,10 @@ class Test extends React.Component<any, any> {
       });
       return;
     }
-    this.getNextQuestion('');
-    // if ( !this.state.selectedAnswer ) return false;
+    this.getNextQuestion('');*/
+    if ( !this.state.selectedAnswer ) return false;
 
-    /*Requests.post('checkAnswer', {questionID: this.state.currentQuestion._id, answerID: this.state.selectedAnswer})
+    Requests.post('checkAnswer', {questionID: this.state.currentQuestion._id, answerID: this.state.selectedAnswer})
       .then( res => {
         if ( res.data.status ) {
           if ( res.data.data ) {
@@ -94,7 +94,7 @@ class Test extends React.Component<any, any> {
         }
       }).catch( err => {
         console.error(err);
-      })*/
+      })
   }
 
   getBasicQuestions() {
@@ -115,7 +115,7 @@ class Test extends React.Component<any, any> {
 
   getNextQuestion(query?: string) {
 
-    // if ( this.answersCounter.total >= 9 ) return this.getResult();
+    if ( this.answersCounter.total >= 9 ) return this.getResult();
 
     if ( this.state.currentQuestion && !query ) {
       const questionIndex = this.state.currentQuestion.index;
