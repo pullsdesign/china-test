@@ -9,16 +9,18 @@ function ImageTest(props: any) {
 
   return (
     <div className="question-wrapper">
-      <div className="question-wrapper__question">
+      <div className="question-wrapper__question --group">
         <p className="question-wrapper__question-title" dangerouslySetInnerHTML={{__html: question.title}}/>
-        <p className="question-wrapper__question-word">
-          <span dangerouslySetInnerHTML={{__html: question.question}}/>
-          <button
-            onClick={() => props.audioPlay(question.sound)}
-            className="btn-play"
-          />
-        </p>
-        <p className="question-wrapper__question-transcription" dangerouslySetInnerHTML={{__html: question.clarification}}/>
+        <div>
+          <p className="question-wrapper__question-word">
+            <span dangerouslySetInnerHTML={{__html: question.question}}/>
+            <button
+              onClick={() => props.audioPlay(question.sound)}
+              className="btn-play"
+            />
+          </p>
+          <p className="question-wrapper__question-transcription" dangerouslySetInnerHTML={{__html: question.clarification}}/>
+        </div>
       </div>
       <div className="question-wrapper__answer">
         {question.answers.map( (answer: any) => (

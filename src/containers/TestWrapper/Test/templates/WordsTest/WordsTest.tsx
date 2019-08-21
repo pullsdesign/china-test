@@ -8,7 +8,7 @@ function WordsTest(props: any) {
 
   return (
     <div className="question-wrapper">
-      <div className="question-wrapper__question">
+      <div className="question-wrapper__question --group">
         <p className="question-wrapper__question-title" dangerouslySetInnerHTML={{__html: question.title}}/>
         <div className="q-wrap">
           <p className="question-wrapper__question-word">
