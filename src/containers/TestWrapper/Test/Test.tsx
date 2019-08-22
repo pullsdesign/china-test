@@ -272,6 +272,7 @@ class Test extends React.Component<any, any> {
           popup={this.state.popup}
           continue={this.continueTheTest}
           getResult={this.getResult}
+          currentQuestionNum={this.answersCounter.total}
         />
       </div>
     )
