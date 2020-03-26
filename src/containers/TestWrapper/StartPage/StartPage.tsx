@@ -1,6 +1,6 @@
 import React from 'react';
 import './StartPage.scss';
-import {Props} from './interfaces';
+import { Props } from './interfaces';
 
 import Lighter from '../../../assets/imgs/lighter-icon.png';
 import LeftArrowIcon from '../../../assets/imgs/left-arrow.png'
@@ -22,10 +22,6 @@ function StartPage(props: Props) {
         className="start-page__btn"
         onClick={() => props.onStartTest(document.getElementById('characters'))}
       >Go to the test<img src={LeftArrowIcon} alt="Arrow"/></button>
-      {/*<button
-        className="start-page__btn temporary"
-        onClick={() => props.onQuestions()}
-      >Show all questions(temporary button)</button>*/}
     </div>
   )
 }

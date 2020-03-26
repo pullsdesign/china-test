@@ -24,12 +24,12 @@ function SoundTextTest(props: any) {
       <div className="question-wrapper__answer">
         {question.answers.map( (answer: any) => (
           <label
-            key={answer._id}
-            className={props.selectedAnswer === answer._id ? 'active' : ''}
+            key={answer._id.$oid}
+            className={props.selectedAnswer === answer._id.$oid ? 'active' : ''}
             onMouseOver={() => props.audioPlay(answer.sound)}
             onMouseLeave={() => props.audioStop(answer.sound)}
           >
-            <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
+            <input name="answer" value={answer._id.$oid} type="radio" onChange={props.selectHandler}/>
             <p className="question-wrapper__answer-text"><span>{answer.text}</span><br/><span>{answer.subText}</span></p>
           </label>
         ))}

@@ -5,7 +5,6 @@ import {State} from './interfaces';
 import StartPage from './StartPage/StartPage';
 import Test from './Test/Test';
 
-// import Questions from './Questions/Questions';
 import Stub from './Stub/Stub';
 
 export default class TestWrapper extends React.Component<Object, State> {
@@ -50,8 +49,6 @@ export default class TestWrapper extends React.Component<Object, State> {
   }
 
   render() {
-
-    // if ( this.state.showQuestions ) return <Questions/>;
 
     if ( this.state.testStarted && this.state.pinyin ) return <Stub onStartPage={this.goToStartPage} />;
 

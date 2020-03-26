@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Config from '../../../config';
+
 import './Result.scss';
 
 import NewbieIcon from '../../../assets/imgs/cpod_level_newbie.svg'
@@ -8,35 +11,41 @@ import IntermediateIcon from '../../../assets/imgs/cpod_level_intermediate.svg'
 import UpperIntermediateIcon from '../../../assets/imgs/cpod_level_upper-intermediate.svg'
 import Advanced from '../../../assets/imgs/cpod_level_advanced.svg'
 
+
 const icons = [
   {
     level: 'Newbie',
-    icon: NewbieIcon
+    icon: NewbieIcon,
+    pdf: 'newbie.pdf',
   },
   {
     level: 'Elementary',
-    icon: ElementaryIcon
+    icon: ElementaryIcon,
+    pdf: 'elementary.pdf',
   },
   {
     level: 'Pre Intermediate',
-    icon: PreIntermediateIcon
+    icon: PreIntermediateIcon,
+    pdf: 'pre-intermediate.pdf',
   },
   {
     level: 'Intermediate',
-    icon: IntermediateIcon
+    icon: IntermediateIcon,
+    pdf: 'intermediate.pdf',
   },
   {
     level: 'Upper Intermediate',
-    icon: UpperIntermediateIcon
+    icon: UpperIntermediateIcon,
+    pdf: 'upper-intermediate.pdf',
   },
   {
     level: 'Advanced',
-    icon: Advanced
+    icon: Advanced,
+    pdf: 'advanced.pdf',
   }
 ];
 
-function Result(props: any) {
-  console.log(props);
+export const Result = (props: any) => {
   const styles = {
     bar: {
       width: 10 * props.answers + '%'
@@ -51,15 +60,24 @@ function Result(props: any) {
       <p className="result__title">You are recommended to the <span>{icons[props.result - 1].level} 100 curriculum</span></p>
       <ul className="result__level">
         <li className={icons[props.result - 2] ? '' : 'hidden'}>
-          <img src={icons[props.result - 2] ? icons[props.result - 2].icon : ''} alt="Intermediate"/>
+          {/* eslint-disable-next-line react/jsx-no-target-blank */}
+          <a target="_blank" href={icons[props.result - 2] ? Config.PUBLIC_DOCS_URL + icons[props.result - 2].pdf : '#'}>
+            <img src={icons[props.result - 2] ? icons[props.result - 2].icon : ''} alt="Lvl"/>
+          </a>
           <span>Review the previous level</span>
         </li>
         <li>
-          <img src={icons[props.result - 1].icon} alt="Advanced"/>
+          {/* eslint-disable-next-line react/jsx-no-target-blank */}
+          <a target="_blank" href={icons[props.result - 1] ? Config.PUBLIC_DOCS_URL + icons[props.result - 1].pdf : '#'}>
+            <img src={icons[props.result - 1].icon} alt="Lvl"/>
+          </a>
           <span>Your recommended level</span>
         </li>
         <li className={icons[props.result] ? '' : 'hidden'}>
-          <img src={icons[props.result].icon} alt="Upper Intermediate"/>
+          {/* eslint-disable-next-line react/jsx-no-target-blank */}
+          <a target="_blank" href={icons[props.result] ? Config.PUBLIC_DOCS_URL + icons[props.result].pdf : '#'}>
+            <img src={icons[props.result] ? icons[props.result].icon : ''} alt="Lvl"/>
+          </a>
           <span>Preview the next level</span>
         </li>
       </ul>
@@ -74,6 +92,4 @@ function Result(props: any) {
       </div>
     </div>
   )
-}
-
-export default Result;
+};

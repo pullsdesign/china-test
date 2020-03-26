@@ -1,15 +1,15 @@
 import React from 'react';
 import './Test.scss';
 
-import Requests from '../../../utils/requests';
-
 import ImageTest from './templates/ImageTest/ImageTest';
 import TextTest from './templates/TextTest/TextTest';
 import SoundTextTest from './templates/SoundTextTest/SoundTextTest';
 import SoundImageTest from './templates/SoundImageTest/SoundImageTest';
 import WordsTest from './templates/WordsTest/WordsTest';
 
-import Result from '../Result/Result';
+import { getBasicQuestions, checkAnswer, getQuestion } from '../../../utils/test.core';
+
+import { Result } from '../Result/Result';
 import Buttons from './Buttons/Buttons';
 import TestPopup from '../../../components/TestPopup/TestPopup';
 import Config from "../../../config";
@@ -55,59 +55,44 @@ class Test extends React.Component<any, any> {
 
   private checkQuestion(clickedBtn: string) {
     this.stopAudio();
-    /*if ( clickedBtn === 'back' ) {
-      const questionIndex = this.state.currentQuestion.index;
-      this.setState({
-        currentQuestion: {...this.state.questions[questionIndex - 1], index: questionIndex - 1},
-        selectedAnswer: ''
-      });
-      return;
-    }
-    this.getNextQuestion('');*/
+
     if ( !this.state.selectedAnswer ) return false;
 
-    Requests.post('checkAnswer', {questionID: this.state.currentQuestion._id, answerID: this.state.selectedAnswer})
-      .then( res => {
-        if ( res.data.status ) {
-          if ( res.data.data ) {
-            this.answersCounter.correct++;
-            this.getNextQuestion(this.state.currentLevel ? `level=${this.state.currentLevel}` : '');
-          } else {
-            if ( clickedBtn === 'notSure' || clickedBtn === 'notKnow' ) {
-              this.setState({
-                popup: {
-                  shown: true,
-                  status: 'not worry'
-                }
-              })
-            } else {
-              this.setState({
-                popup: {
-                  shown: true,
-                  status: 'error'
-                }
-              })
-            }
-          }
+    checkAnswer(this.state.currentQuestion._id.$oid, this.state.selectedAnswer)
+      .then( valid => {
+        if ( valid ) {
+          this.answersCounter.correct++;
+          this.getNextQuestion(this.state.currentLevel ? this.state.currentLevel : '');
         } else {
-          throw res.data.err;
+          if ( clickedBtn === 'notSure' || clickedBtn === 'notKnow' ) {
+            this.setState({
+              popup: {
+                shown: true,
+                status: 'not worry'
+              }
+            })
+          } else {
+            this.setState({
+              popup: {
+                shown: true,
+                status: 'error'
+              }
+            })
+          }
         }
       }).catch( err => {
         console.error(err);
-      })
+      });
   }
 
   getBasicQuestions() {
-    Requests.get('questions')
-      .then( res => {
-        if ( res.data.status ) {
-          this.setState({
-            questions: res.data.data,
-            currentQuestion: {...res.data.data[0], index: 0},
-          });
-        } else {
-          throw res.data.err;
-        }
+    getBasicQuestions()
+      .then( questions => {
+        this.setState({
+          questions: questions,
+          // @ts-ignore
+          currentQuestion: {...questions[0], index: 0},
+        });
       }).catch( err => {
       console.error(err);
     });
@@ -125,30 +110,26 @@ class Test extends React.Component<any, any> {
       });
       this.answersCounter.total++;
     } else {
-      Requests.get('question' + (query ? `?${query}` : ''))
-        .then( res => {
-          if ( res.data.status ) {
-            const question: any = res.data.data;
+      getQuestion(query)
+        .then( (result: any) => {
+          const question: any = result.question;
 
-            if ( this.checkIsExistQuestion(question._id) ) {
-              this.getNextQuestion(query);
-            } else {
-              this.existQuestionsIDs.push(question._id);
-
-              question.answers = res.data.data2;
-
-              this.setState({
-                currentQuestion: question,
-                selectedAnswer: ''
-              });
-              this.answersCounter.total++;
-            }
+          if ( this.checkIsExistQuestion(question._id.$oid) ) {
+            this.getNextQuestion(query);
           } else {
-            throw res.data.err;
+            this.existQuestionsIDs.push(question._id.$oid);
+
+            question.answers = result.answers;
+
+            this.setState({
+              currentQuestion: question,
+              selectedAnswer: ''
+            });
+            this.answersCounter.total++;
           }
         }).catch( err => {
-        console.error(err);
-      });
+          console.error(err);
+        });
     }
   }
 
@@ -160,7 +141,7 @@ class Test extends React.Component<any, any> {
         status: ''
       }
     }, () => {
-      this.getNextQuestion(`level=${this.state.currentLevel}`);
+      this.getNextQuestion(this.state.currentLevel);
     });
   }
 

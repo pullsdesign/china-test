@@ -24,8 +24,8 @@ function ImageTest(props: any) {
       </div>
       <div className="question-wrapper__answer">
         {question.answers.map( (answer: any) => (
-          <label key={answer._id} className={props.selectedAnswer === answer._id ? 'active' : ''}>
-            <input name="answer" value={answer._id} type="radio" onChange={props.selectHandler}/>
+          <label key={answer._id.$oid} className={props.selectedAnswer === answer._id.$oid ? 'active' : ''}>
+            <input name="answer" value={answer._id.$oid} type="radio" onChange={props.selectHandler}/>
             <img src={Config.PUBLIC_IMGS_URL + answer.img} alt={answer.img}/>
           </label>
         ))}
