@@ -17,7 +17,8 @@ import Config from "../../../config";
 class Test extends React.Component<any, any> {
   public answersCounter = {
     total: 0,
-    correct: 0
+    correct: 0,
+    limit: 9,
   };
   private playingAudio: any;
 
@@ -100,7 +101,7 @@ class Test extends React.Component<any, any> {
 
   getNextQuestion(query?: string) {
 
-    if ( this.answersCounter.total >= 9 ) return this.getResult();
+    if ( this.answersCounter.total >= this.answersCounter.limit ) return this.getResult();
 
     if ( this.state.currentQuestion && !query ) {
       const questionIndex = this.state.currentQuestion.index;
@@ -141,6 +142,7 @@ class Test extends React.Component<any, any> {
         status: ''
       }
     }, () => {
+      this.answersCounter.limit = this.answersCounter.total + 10;
       this.getNextQuestion(this.state.currentLevel);
     });
   }
